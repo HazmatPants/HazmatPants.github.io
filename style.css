@@ -1,13 +1,10 @@
-body {
+body { 
   background-color: black;
-}
-
-h1 {
   color: white;
+  font-family: courier;
   text-align: center;
 }
-
-p {
-  font-family: courier;
-  font-size: 20px;
+ul {
+  text-align: center;
+  list-style: none;
 }
