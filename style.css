@@ -35,3 +35,19 @@ ul {
     color: black;
     width: 22%;
 }
+
+.button2 {
+    background-color: black;
+    color: white;
+    border: 2px solid #ffffff;
+    width: 10%;
+    height: 10%;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.button2:hover {
+    background-color: white;
+    color: black;
+    width: 12%;
+}
