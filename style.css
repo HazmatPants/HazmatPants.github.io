@@ -16,7 +16,7 @@ ul {
     text-decoration: none;
     display: inline-block;
     font-size: 15px;
-    margin: 2px 2px;
+    margin: 0 auto;
     transition-duration: 0.4s;
     cursor: pointer;
   }
