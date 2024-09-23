@@ -9,6 +9,7 @@ ul {
   list-style: none;
 }
 .button {
+    width: 80%;
     border: none;
     color: white;
     padding: 4px 16px;
@@ -25,13 +26,13 @@ ul {
     background-color: black;
     color: white;
     border: 2px solid #ffffff;
-    width: 64px;
+    width: 15%;
   }
   
   .button1:hover {
     background-color: white;
     color: black;
-    width: 81px;
+    width: 20%;
   }
   
   .button2 {
