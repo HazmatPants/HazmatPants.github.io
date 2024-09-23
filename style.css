@@ -25,13 +25,13 @@ ul {
     background-color: black;
     color: white;
     border: 2px solid #ffffff;
-    width: 64px
+    width: 25%;
   }
   
   .button1:hover {
     background-color: white;
     color: black;
-    width: 81px
+    width: 30%;
   }
   
   .button2 {
