@@ -9,7 +9,6 @@ ul {
   list-style: none;
 }
 .button {
-    width: 80%;
     border: none;
     color: white;
     padding: 4px 16px;
@@ -18,22 +17,23 @@ ul {
     display: inline-block;
     font-size: 15px;
     margin: 0 auto;
-    transition-duration: 0.4s;
+    transition: background-color 0.4s, color 0.4s, width 0.4s;
     cursor: pointer;
-  }
-  
-  .button1 {
+}
+
+.button1 {
     background-color: black;
     color: white;
     border: 2px solid #ffffff;
     width: 15%;
-  }
-  
-  .button1:hover {
+    display: inline-block;
+}
+
+.button1:hover {
     background-color: white;
     color: black;
-    width: 20%;
-  }
+    width: 18%;
+}
   
   .button2 {
     background-color: black;
