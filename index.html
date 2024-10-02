@@ -10,14 +10,20 @@
   div {
     display: inline;
   }    
+
+  #motd {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 </style>
 </head>
   <body>
     <h1><big><u>hazmatpants' epic website</u></big></h1>
     <img src="images/hazmatpants.png">
     <hr>
-    <div>
-    </div>
     <div>
       <a href="https://www.youtube.com/@hazmatpants"><img src="icons/yt.png" width=32 height=32></a>
     </div>
@@ -31,6 +37,26 @@
      <a href="https://discord.gg/6rD6S6JXMY"><img src="icons/dsc.png" width=32 height=32></a>
     </div>
     <hr>
+    <br>
+    <div id="motd">Loading...</div>
+
+    <script>
+        fetch('message.txt')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('motd').innerText = data;
+            })
+            .catch(error => {
+                document.getElementById('motd').innerText = 'Error loading MOTD';
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    </script>
+    
     <br>
     <p>if you find an issue with my website, <a href="https://github.com/HazmatPants/HazmatPants/issues/new">create an issue on GitHub</a> or tell me on discord @hazmatpants</p>
     <br>
