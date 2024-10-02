@@ -4,6 +4,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HazmatPants Minecraft Server</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      .styled-list {
+    list-style-type: none; /* Removes default bullets */
+    padding: 0;           /* Removes default padding */
+    margin: 20px;        /* Adds margin around the list */
+    font-family: Arial, sans-serif; /* Sets a clean font */
+}
+
+.styled-list li {
+    background-color: #424242; /* Light gray background */
+    border: 1px solid #ccc;    /* Light gray border */
+    border-radius: 5px;        /* Rounded corners */
+    padding: 10px 15px;        /* Adds padding */
+    margin: 5px 0;             /* Space between items */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.styled-list li:hover {
+    background-color: #222222; /* Darker gray on hover */
+    cursor: pointer;           /* Changes cursor to pointer */
+}
+
+a {
+  color: rgb(88, 88, 255);
+  text-decoration: none;
+}
+
+li {
+  color: rgb(201, 201, 255);
+  text-decoration: none;
+}
+    </style>
 </head>
   <body>
     <h1><u>My Minecraft Server</u></h1>
@@ -12,16 +44,38 @@
       Hardware: Raspberry Pi 400<br>
       Version: Forge 1.12.2-14.23.5.2860
     </p>
+    <div id="status"><p>Fetching...</p></div>
+    <script>
+      async function checkServerStatus() {
+          const serverIP = 'friend-considering.gl.joinmc.link';
+          const response = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
+          const data = await response.json();
+
+          const statusElement = document.getElementById('status');
+
+          if (data.online) {
+              statusElement.textContent = 'Server is online!';
+              statusElement.style.color = 'green';
+          } else {
+              statusElement.textContent = 'Server is offline!';
+              statusElement.style.color = 'red';
+          }
+      }
+
+      window.onload = checkServerStatus;
+  </script>
+
     <br>
     <p>Mod List:</p>
-    <ul>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/hbms-nuclear-tech-mod-extended-edition/files/5254559">NTM Extended</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/treechop/files/3532213">HT's Treechop</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/carry-on/files/4507139">Carry On</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/extended-days/files/2643053">Extended Days</a> (+<a href="https://www.curseforge.com/minecraft/mc-mods/silent-lib/files/2851111">SilentLib</a>)</li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/gravestone-mod/files/2744766">Gravestone</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/itemphysic/files/3487676">ItemPhysic Full</a></li>
+    <ul class="styled-list">
+      <a href="https://www.curseforge.com/minecraft/mc-mods/hbms-nuclear-tech-mod-extended-edition/files/5254559"><li>NTM Extended</li></a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/treechop/files/3532213"><li>HT's Treechop</li></a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/carry-on/files/4507139"><li>Carry On</li></a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/extended-days/files/2643053"><li>Extended Days</li></a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/silent-lib/files/2851111"><li>SilentLib</li></a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/gravestone-mod/files/2744766"><li>Gravestone</li></a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/itemphysic/files/3487676"><li>ItemPhysic Full</li></a>
     </ul>
-    <p>Join this <a href="https://discord.gg/TUrSE6xeDR">Discord Server</a> for more info (and the required mods)</p>
+    <p>Join this <a href="https://discord.gg/TUrSE6xeDR">Discord Server</a> for more info</p>
   </body>
 </html>
