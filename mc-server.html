@@ -14,11 +14,14 @@
             const statusElement = document.getElementById('status');
             const playersElement = document.getElementById('players');
             const modsElement = document.getElementById('mods');
+            const motdElement = document.getElementById('motd');
 
             if (data.online) {
                 statusElement.textContent = 'Server is online!';
                 statusElement.style.color = 'limegreen';
 
+                motdElement.textContent = `"${data.motd.clean}"`;
+                
                 // Show players online
                 const playerCount = data.players.online;
                 const playerList = data.players.list || []; // Some servers may not return a list
@@ -58,6 +61,7 @@
 <body>
     <h1>Minecraft Server Status</h1>
     <p id="status">Checking server status...</p>
+    <p id="motd"></p>
     <p id="players"></p>
     <div id="mods"></div>
     <br>
