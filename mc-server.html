@@ -13,31 +13,25 @@
 
             const statusElement = document.getElementById('status');
             const playersElement = document.getElementById('players');
-            const modsElement = document.getElementById('mods');
-            const motdElement = document.getElementById('motd');
 
             if (data.online) {
                 statusElement.textContent = 'Server is online!';
-                statusElement.style.color = 'limegreen';
+                statusElement.style.color = 'green';
 
-                motdElement.textContent = `"${data.motd.clean}"`;
-                
                 // Show players online
                 const playerCount = data.players.online;
                 const playerList = data.players.list || []; // Some servers may not return a list
 
+                playersElement.innerHTML = `Players online: ${playerCount}<br>`;
                 if (playerCount > 0) {
-                  playersElement.innerHTML = `Players online: ${playerCount}<br>`;
+                    playersElement.innerHTML += `Player names: ${playerList.join(', ')}`;
                 } else {
-                  playersElement.innerHTML += 'No players online.';
+                    playersElement.innerHTML += 'No players online.';
                 }
-                if (playerCount > 0) {
-                    playersElement.innerHTML += `Players: ${playerList.join(', ')}`;
-                } else {
+            } else {
                 statusElement.textContent = 'Server is offline!';
                 statusElement.style.color = 'red';
                 playersElement.textContent = '';
-                modsElement.textContent = '';
             }
         }
 
