@@ -1,36 +1,13 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HazmatPants Minecraft Server</title>
+    <title>Minecraft Server Status</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <style>
-      a {
-        color: rgb(88, 88, 255);
-        text-decoration: none;
-      }
-
-      li {
-        color: rgb(201, 201, 255);
-        text-decoration: none;
-      }
-    </style>
-</head>
-  <body>
-    <h1><u>Schrabidium Apple</u></h1>
-    <p>
-      IP: friend-considering.gl.joinmc.link<br>
-      Hardware: Raspberry Pi 400<br>
-      Version: Forge 1.12.2-14.23.5.2860
-    </p>
-    <br>
-    <p id="status">Pinging server...</p>
-    <p id="players"></p>
-    <div id="mods"></div>
-    <br>
     <script>
         async function checkServerStatus() {
-            const serverIP = 'your.server.ip'; // Replace with your server IP
+            const serverIP = 'friend-considering.gl.joinmc.link';
             const response = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
             const data = await response.json();
 
@@ -40,7 +17,7 @@
 
             if (data.online) {
                 statusElement.textContent = 'Server is online!';
-                statusElement.style.color = 'green';
+                statusElement.style.color = 'limegreen';
 
                 // Show players online
                 const playerCount = data.players.online;
@@ -55,20 +32,18 @@
                     playersElement.innerHTML += `Players: ${playerList.join(', ')}`;
                 } 
 
-                // Show mods list
-                const modsList = data.mods || []; // Some servers may not return a mods list
-                modsElement.innerHTML = '<strong>Mods:</strong>';
-                if (modsList.length > 0) {
-                    const ul = document.createElement('ul');
-                    modsList.forEach(mod => {
-                        const li = document.createElement('li');
-                        li.textContent = mod.name; // Display the name of each mod
-                        ul.appendChild(li);
+                // Show mods
+                const modList = data.mods || []; // Check if mod list exists
+                if (modList.length > 0) {
+                    modsElement.innerHTML = '<strong>Installed Mods:</strong><ul>';
+                    modList.forEach(mod => {
+                        modsElement.innerHTML += `<li>${mod.name} (Version: ${mod.version})</li>`;
                     });
-                    modsElement.appendChild(ul);
+                    modsElement.innerHTML += '</ul>';
                 } else {
-                    modsElement.innerHTML += 'No mods installed.';
+                    modsElement.innerHTML = 'No mods installed.';
                 }
+
             } else {
                 statusElement.textContent = 'Server is offline!';
                 statusElement.style.color = 'red';
@@ -79,8 +54,11 @@
 
         window.onload = checkServerStatus;
     </script>
-    <br>
-    
-    <p>Join this <a href="https://discord.gg/TUrSE6xeDR">Discord Server</a> for more info</p>
-  </body>
+</head>
+<body>
+    <h1>Minecraft Server Status</h1>
+    <p id="status">Checking server status...</p>
+    <p id="players"></p>
+    <div id="mods"></div>
+</body>
 </html>
