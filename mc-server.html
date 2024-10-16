@@ -14,26 +14,10 @@
         color: rgb(201, 201, 255);
         text-decoration: none;
       }
-
-      .styled-title h1 {
-        background-color: #424242; /* Light gray background */
-        border: 1px solid #ccc;    /* Light gray border */
-        border-radius: 2px;        /* Rounded corners */
-        padding: 10px 15px;        /* Adds padding */
-        margin: 5px 0;             /* Space between items */
-        color: white;
-        text-align: left;
-        transition: background-color 0.3s; /* Smooth transition for hover effect */
-      }
-
-      .styled-title h1:hover {
-          background-color: #222222; /* Darker gray on hover */
-          cursor: pointer;           /* Changes cursor to pointer */
-      }
     </style>
 </head>
   <body>
-    <h1 class="styled-title"><u>Schrabidium Apple</u></h1>
+    <h1><u>Schrabidium Apple</u></h1>
     <p>
       IP: friend-considering.gl.joinmc.link<br>
       Hardware: Raspberry Pi 400<br>
@@ -54,18 +38,20 @@
 
             if (data.online) {
                 statusElement.textContent = 'Server is online!';
-                statusElement.style.color = 'green';
+                statusElement.style.color = 'limegreen';
 
                 // Show players online
                 const playerCount = data.players.online;
                 const playerList = data.players.list || []; // Some servers may not return a list
 
-                playersElement.innerHTML = `Players online: ${playerCount}<br>`;
                 if (playerCount > 0) {
-                    playersElement.innerHTML += `Player names: ${playerList.join(', ')}`;
+                  playersElement.innerHTML = `Players online: ${playerCount}<br>`;
                 } else {
-                    playersElement.innerHTML += 'No players online.';
+                  playersElement.innerHTML += 'No players online.';
                 }
+                if (playerCount > 0) {
+                    playersElement.innerHTML += `Players: ${playerList.join(', ')}`;
+                } 
             } else {
                 statusElement.textContent = 'Server is offline!';
                 statusElement.style.color = 'red';
