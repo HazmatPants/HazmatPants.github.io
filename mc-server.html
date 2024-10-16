@@ -14,10 +14,26 @@
         color: rgb(201, 201, 255);
         text-decoration: none;
       }
+
+      .styled-title h1 {
+        background-color: #424242; /* Light gray background */
+        border: 1px solid #ccc;    /* Light gray border */
+        border-radius: 2px;        /* Rounded corners */
+        padding: 10px 15px;        /* Adds padding */
+        margin: 5px 0;             /* Space between items */
+        color: white;
+        text-align: left;
+        transition: background-color 0.3s; /* Smooth transition for hover effect */
+      }
+
+      .styled-title h1:hover {
+          background-color: #222222; /* Darker gray on hover */
+          cursor: pointer;           /* Changes cursor to pointer */
+      }
     </style>
 </head>
   <body>
-    <h1><u>My Minecraft Server</u></h1>
+    <h1 class="styled-title"><u>Schrabidium Apple</u></h1>
     <p>
       IP: friend-considering.gl.joinmc.link<br>
       Hardware: Raspberry Pi 400<br>
