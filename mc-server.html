@@ -29,16 +29,17 @@
     <br>
     <script>
         async function checkServerStatus() {
-            const serverIP = 'friend-considering.gl.joinmc.link';
+            const serverIP = 'your.server.ip'; // Replace with your server IP
             const response = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
             const data = await response.json();
 
             const statusElement = document.getElementById('status');
             const playersElement = document.getElementById('players');
+            const modsElement = document.getElementById('mods');
 
             if (data.online) {
                 statusElement.textContent = 'Server is online!';
-                statusElement.style.color = 'limegreen';
+                statusElement.style.color = 'green';
 
                 // Show players online
                 const playerCount = data.players.online;
@@ -52,10 +53,26 @@
                 if (playerCount > 0) {
                     playersElement.innerHTML += `Players: ${playerList.join(', ')}`;
                 } 
+
+                // Show mods list
+                const modsList = data.mods || []; // Some servers may not return a mods list
+                modsElement.innerHTML = '<strong>Mods:</strong>';
+                if (modsList.length > 0) {
+                    const ul = document.createElement('ul');
+                    modsList.forEach(mod => {
+                        const li = document.createElement('li');
+                        li.textContent = mod.name; // Display the name of each mod
+                        ul.appendChild(li);
+                    });
+                    modsElement.appendChild(ul);
+                } else {
+                    modsElement.innerHTML += 'No mods installed.';
+                }
             } else {
                 statusElement.textContent = 'Server is offline!';
                 statusElement.style.color = 'red';
                 playersElement.textContent = '';
+                modsElement.textContent = '';
             }
         }
 
