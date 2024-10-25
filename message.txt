@@ -1,1 +1,1 @@
-mc server currently not set up
+setting up mc server
