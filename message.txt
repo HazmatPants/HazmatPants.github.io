@@ -1,1 +1,1 @@
-mc server up and running :D
+minecraft server up and running :D
