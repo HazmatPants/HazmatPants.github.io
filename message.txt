@@ -1,1 +1,1 @@
-setting up mc server
+mc server up and running :D
