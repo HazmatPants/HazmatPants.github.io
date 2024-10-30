@@ -24,7 +24,7 @@ body {
     width: 20%;
     min-width: 200px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .button1:hover {
@@ -41,7 +41,7 @@ body {
     height: 10%;
     min-width: 100px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .button2:hover {
