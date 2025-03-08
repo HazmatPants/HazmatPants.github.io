@@ -35,14 +35,16 @@
     overflow: hidden;
   }
   
-  .icon-container a {
-    width: 300px;
+  .icon-container img {
+    width: 32px;
+    height: 32px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
   }
-  
-  .icon-container a:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+  .icon-container img:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
   }
 </style>
 </head>
