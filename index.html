@@ -16,10 +16,24 @@
             font-family: Courier;
             margin: 5px;
         }
+  .glow-text {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00;
+    }
+    100% {
+      text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa, 0 0 30px #ff00aa;
+    }
 </style>
 </head>
   <body>
-    <h1><big><u>hazmatpants' epic website</u></big></h1>
+    <h1 class="glow-text"><big><u>HazmatPants</u></big></h1>
     <img src="images/hazmatpants.png" width=200 height=200 style="padding: 50px;">
     <hr>
     <div>
