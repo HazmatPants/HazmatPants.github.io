@@ -30,22 +30,36 @@
     100% {
       text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa, 0 0 30px #ff00aa;
     }
+  .socialIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .socialIcon:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
 </style>
 </head>
   <body>
     <h1 class="glow-text"><big><u>HazmatPants</u></big></h1>
     <img src="images/hazmatpants.png" width=200 height=200 style="padding: 50px;">
     <hr>
-    <div>
+    <div class="socialIcon">
       <a href="https://www.youtube.com/@hazmatpants"><img src="icons/yt.png" width=32 height=32></a>
     </div>
-    <div>
+    <div class="socialIcon">
       <a href="https://bsky.app/profile/hazmatpants.bsky.social"><img src="icons/bsky.png" width=32 height=32></a>
     </div>
-    <div>
+    <div class="socialIcon">
       <a href="https://www.github.com/HazmatPants"><img src="icons/github.png" width=32 height=32></a>
     </div>
-    <div>
+    <div class="socialIcon">
      <a href="https://discord.gg/eRHfUJEpBj"><img src="icons/dsc.png" width=32 height=32></a>
     </div>
     <hr>
