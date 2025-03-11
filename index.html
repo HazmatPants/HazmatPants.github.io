@@ -72,20 +72,26 @@
     <div id="motd">Loading...</div>
 
     <script>
-        fetch('message.txt')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+        async function fetchMOTD() {
+            try {
+                const response = await fetch('messages.txt');
+                const text = await response.text();
+                const messages = text.split(/\r?\n/).filter(line => line.trim() !== ""); // Split lines and remove empty ones
+
+                if (messages.length > 0) {
+                    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                    document.getElementById("motd").textContent = randomMessage;
+                } else {
+                    document.getElementById("motd").textContent = "No messages available.";
                 }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('motd').innerText = data;
-            })
-            .catch(error => {
-                document.getElementById('motd').innerText = 'Error loading MOTD';
-                console.error('fetch operation error:', error);
-            });
+            } catch (error) {
+                console.error("Error loading messages:", error);
+                document.getElementById("motd").textContent = "Failed to load message.";
+            }
+        }
+
+        // Load the message when the page loads
+        fetchMOTD();
     </script>
     <br>
     <p>if you find an issue with my website, <a href="https://github.com/HazmatPants/HazmatPants.github.io/issues/new">create an issue on GitHub</a> or tell me on discord @hazmatpants</p>
