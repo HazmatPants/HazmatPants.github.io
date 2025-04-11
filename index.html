@@ -16,20 +16,89 @@
             font-family: Courier;
             margin: 5px;
         }
-  .glow-text {
-    font-size: 40px;
-    color: #fff;
-    text-align: center;
-    animation: glow 1.5s ease-in-out infinite alternate;
-  }
 
-  @keyframes glow {
-    0% {
-      text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00;
+    /* === Glitch Effect === */
+    .glitch {
+      font-size: 2em;
+      position: relative;
+      color: white;
     }
-    100% {
-      text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa, 0 0 30px #ff00aa;
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
     }
+
+    .glitch::before {
+      animation: glitchTop 2s infinite linear alternate-reverse;
+      color: #f0f;
+      top: -2px;
+    }
+
+    .glitch::after {
+      animation: glitchBottom 2s infinite linear alternate-reverse;
+      color: #0ff;
+      top: 2px;
+    }
+
+    @keyframes glitchTop {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-2px); }
+      40% { transform: translateX(2px); }
+      60% { transform: translateX(-1px); }
+      80% { transform: translateX(1px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(2px); }
+      40% { transform: translateX(-2px); }
+      60% { transform: translateX(1px); }
+      80% { transform: translateX(-1px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* === Floating Animation === */
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* === Responsive === */
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+    }
+
+      /* === Hover Card === */
+    .card {
+      width: 250px;
+      height: 40px;
+      background: #ffffff10;
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+    }
+
+    .card:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+    }
+  
   .icon-container {
     display: inline-block;
     overflow: hidden;
@@ -50,7 +119,7 @@
 </style>
 </head>
   <body>
-    <h1 class="glow-text"><big><u>HazmatPants</u></big></h1>
+    <h1 class="floating glitch" data-text="HazmatPants">HazmatPants</h1>
     <img src="images/hazmatpants.png" width=200 height=200 style="padding: 50px;">
     <hr>
     <div class="icon-container">
@@ -99,16 +168,16 @@
     <p>if you find an issue with my website, <a href="https://github.com/HazmatPants/HazmatPants.github.io/issues/new">create an issue on GitHub</a> or tell me on discord @hazmatpants</p>
     <br>
     <br>
-    <a href="guestbook" class="button button1">Guestbook</a>
+    <a href="guestbook" class="card">Guestbook</a>
     <br>
-    <a href="games" class="button button1">Games I Play</a>
+    <a href="games" class="card">Games I Play</a>
     <br>
-    <a href="mc-server" class="button button1">My Minecraft Server</a>
+    <a href="mc-server" class="card">My Minecraft Server</a>
     <br>
-    <a href="fun" class="button button1">Fun Stuff</a>
+    <a href="fun" class="card">Fun Stuff</a>
     <br>
     <br>
-    <a href="https://github.com/HazmatPants/HazmatPants.github.io" class="button button2">Page Source<a/>
+    <a href="https://github.com/HazmatPants/HazmatPants.github.io" class="button button2">Page Source</a>
     <br>
     <br>
   </body>
