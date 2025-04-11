@@ -4,10 +4,16 @@ body {
   font-family: verdana;
   text-align: center;
 }
+
 ul {
   text-align: center;
   list-style: none;
 }
+
+h1 {
+  padding: 25px;
+}
+
 .button {
     border: none;
     color: white;
