@@ -78,8 +78,8 @@
       height: 40px;
       margin: 0 auto;
       text-align: center;
-      background: #aaaaaa10;
-      background-color: #aaaaaa10;
+      background: #cccccc10;
+      background-color: #cccccc10;
       backdrop-filter: blur(10px);
       border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -91,7 +91,7 @@
     }
 
     .card:hover {
-      transform: scale(1.05) rotate(1deg);
+      transform: scale(1.05);
       box-shadow: 0 20px 30px rgba(0,0,0,0.3);
     }
 
@@ -110,7 +110,7 @@
     width: 32px;
     height: 32px;
     transition: width 0.3s ease, height 0.3s ease;
-    display: block;
+    display: flex;
   }
 
   .icon-container img:hover {
@@ -119,7 +119,6 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
-      /* === Responsive === */
     @media (max-width: 600px) {
       .card {
         width: 90%;
