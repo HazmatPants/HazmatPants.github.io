@@ -7,7 +7,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
     <script>
         async function checkServerStatus() {
-            const serverIP = '86.3.132.254';
+            const serverIP = 'grigga-industries.ydns.eu';
             const response = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
             const data = await response.json();
 
@@ -20,7 +20,7 @@
 
                 // Show players online
                 const playerCount = data.players.online;
-                const playerList = data.players.list || []; // Some servers may not return a list
+                const playerList = data.players.list || [];
 
                 playersElement.innerHTML = `Players online: ${playerCount}<br>`;
                 if (playerCount > 0) {
@@ -45,9 +45,9 @@
 </head>
 <body>
     <h1>Minecraft Server Status</h1>
-    <strong>IP: 86.3.132.254</strong><br>
-    <strong>Hardware: Intel i3-6100 CPU, 8GB RAM</strong><br>
-    <strong>Software: Forge 1.7.10</strong><br><br>
+    <p>IP: <code>grigga-industries.ydns.eu</code></p><br>
+    <p>Hardware: Intel i3-6100 CPU, 8GB RAM<br>
+    <p>Software: Forge 1.7.10</p><br><br>
     <p id="status">Checking server status...</p>
     <p id="motd"></p>
     <p id="players"></p>
