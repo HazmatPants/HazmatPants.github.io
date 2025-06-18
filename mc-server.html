@@ -22,8 +22,8 @@
                 const playerCount = data.players.online;
                 const playerList = data.players.list || [];
 
-                playersElement.innerHTML = `Players online: ${playerCount}<br>`;
                 if (playerCount > 0) {
+                    playersElement.innerHTML = `Players online: ${playerCount}<br>`;
                     playersElement.innerHTML += `Player names: ${playerList.join(', ')}`;
                 } else {
                     playersElement.innerHTML += 'No players online...';
